@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_movement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
     public Rigidbody rb;
-    public float forwardForce = 500f;
-    public float sidewayForce = 500f;
+    public float forwardForce = 2000f;
+    public float sidewayForce = 100f;
 
     // Use this for initialization
     void Start () {
@@ -19,10 +19,10 @@ public class player_movement : MonoBehaviour {
 
         if (Input.GetKey("d"))
         {
-            rb.AddForce(sidewayForce * Time.deltaTime, 0, 0);
+            rb.AddForce(sidewayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         } else if (Input.GetKey("a"))
         {
-            rb.AddForce(-sidewayForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-sidewayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
     }
