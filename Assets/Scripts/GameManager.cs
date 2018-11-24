@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-    bool gameHasEnded;
     public float restartDelay = 1f;
+    public GameObject completeLevelUI;
+
+    bool gameHasEnded;
 
     public void EndGame()
     {
@@ -17,8 +19,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void CompleteLevel()
+    {
+        completeLevelUI.SetActive(true);
+    }
+
+
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 }
